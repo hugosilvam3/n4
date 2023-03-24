@@ -1,0 +1,48 @@
+@startuml
+class Calificaciones_nota{
+    codigo: string
+    materia: Materia
+    curso : Curso
+    estudiante: Estudiante
+    notas: Notas
+}
+
+class Estudiante{
+    cedula: string
+    nombre: string
+    apellido: string
+    telefono: string
+    direccion: string
+}
+
+class Materia{
+    nombre: string
+}
+
+class Notas{
+    numero_notas: string
+    valor_nota: numeric
+    promedio:numeric
+}
+
+class Curso{
+    nombre: string
+}
+
+
+class Docente{
+    numero_doc: string
+    fecha_ini: date
+    nombre: string
+    materia: Materia
+    curso: Curso
+}
+
+
+Estudiante --> Curso
+Materia "1" o-- "1..*" Estudiante
+Docente --> Curso
+Boleta_repor "1" o-- "1..*" Estudiante
+
+Notas <|-- Boleta_repor
+@enduml
